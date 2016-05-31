@@ -17,7 +17,7 @@ var ui5preload = require('gulp-ui5-preload');
 
 gulp.task('ui5preload', function(){
   return gulp.src([
-					'src/ui/**/**.+(js|xml)',
+					'src/ui/**/**.+(js|xml|properties)',
 					'!src/ui/thirdparty/**' //exclude files that don't belong in preload (optional)
                   ])
           .pipe(ui5preload({base:'src/ui',namespace:'my.project.ui'}))
@@ -36,7 +36,7 @@ var gulpif = require('gulp-if');
 
 gulp.task('ui5preload', function(){
   return gulp.src([
-					'src/ui/**/**.+(js|xml)',
+					'src/ui/**/**.+(js|xml|properties)',
 					'!src/ui/thirdparty/**'
                   ])
           .pipe(gulpif('**/*.js',uglify()))    //only pass .js files to uglify
